@@ -1,26 +1,27 @@
 import random
 
-#create a greeting
-
 print("Welcome to Hangman!")
 
-#create your word list
-
 words = ["hacker", "bounty", "random"]
-
-#randomly choose a word from the list you have created
+#Create an empty list
+#For each letter in the secret_word add a "_" that will be
+#         printed to the console
+#Example if the word is Hacker "_","_","_","_","_","_"
 
 secret_word = random.choice(words)
-
-#ask the user to gueass a letter
+display_word = []
+for lett in secret_word:
+    display_word += "_"
+print(display_word)
 
 guess = input("Geuss a letter").lower()
-print(guess)
+#Loop through each if the letters in the chosen word
+#if the letter is in the word replace the "_" with the letter
+#it should look like this "_","a","c","_","_","r"
 
-#check if the letter id in the word
 
-for letter in secret_word:
-    if letter ==guess:
-        print("Right")
-    else:
-        print("Wrong")
+for position in range(len(secret_word)):
+    letter = secret_word[position]
+    if letter == guess:
+        display_word[position] = letter
+print(display_word)
